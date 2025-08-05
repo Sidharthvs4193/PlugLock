@@ -64,7 +64,7 @@ def find_and_verify_key():
 class EnhancedCalculator(tk.Tk):
     def __init__(self, usb_serial):
         super().__init__()
-        self.title("🔒 Secure Calculator Pro")
+        self.title("Secure Calculator Pro")
         self.geometry("360x520")
         self.resizable(False, False)
         self.configure(bg='#2c3e50')
@@ -192,16 +192,16 @@ class EnhancedCalculator(tk.Tk):
         if not self.is_locked:
             self.is_locked = True
             self.withdraw()
-            self.status_label.config(text="🔒 LOCKED - USB Key Required", fg="#e74c3c")
-            messagebox.showerror("🔒 SECURITY LOCK", 
-                               "USB KEY REMOVED!\n\n🔑 Calculator locked for security.\n⚠️ Insert your USB key to continue.")
+            self.status_label.config(text=" LOCKED - USB Key Required", fg="#e74c3c")
+            messagebox.showerror("SECURITY LOCK", 
+                               "USB KEY REMOVED!\n\nCalculator locked for security.\nInsert your USB key to continue.")
 
     def unlock_app(self):
         if self.is_locked:
             self.is_locked = False
             self.deiconify()
-            self.status_label.config(text="🔒 Protected by USB Key", fg="#27ae60")
-            messagebox.showinfo("🔓 UNLOCKED", "USB key detected!\n✅ Calculator unlocked.")
+            self.status_label.config(text="Protected by USB Key", fg="#27ae60")
+            messagebox.showinfo("UNLOCKED", "USB key detected!\n✅ Calculator unlocked.")
 
     def on_closing(self):
         self.destroy()
@@ -210,7 +210,7 @@ def show_auth_dialog():
     root = tk.Tk()
     root.withdraw()
     dialog = tk.Toplevel(root)
-    dialog.title("🔒 Secure Calculator - Authentication")
+    dialog.title("Secure Calculator - Authentication")
     dialog.geometry("450x250")
     dialog.resizable(False, False)
     dialog.configure(bg='#2c3e50')
@@ -221,7 +221,7 @@ def show_auth_dialog():
     y = (dialog.winfo_screenheight() // 2) - (250 // 2)
     dialog.geometry(f"450x250+{x}+{y}")
 
-    tk.Label(dialog, text="🔒 USB Security Key Required", 
+    tk.Label(dialog, text="USB Security Key Required", 
             font=("Arial", 16, "bold"), fg='#ecf0f1', bg='#2c3e50').pack(pady=15)
     
     tk.Label(dialog, text="Insert your USB security key\nor enter backup password:", 
@@ -266,11 +266,11 @@ def show_auth_dialog():
     button_frame = tk.Frame(dialog, bg='#2c3e50')
     button_frame.pack(pady=15)
     
-    tk.Button(button_frame, text="🔓 Unlock", command=check_auth, 
+    tk.Button(button_frame, text="Unlock", command=check_auth, 
              bg="#27ae60", fg="white", width=12, font=("Arial", 10, "bold")).pack(side=tk.LEFT, padx=5)
-    tk.Button(button_frame, text="🔄 Refresh", command=refresh_usb, 
+    tk.Button(button_frame, text="Refresh", command=refresh_usb, 
              bg="#3498db", fg="white", width=12, font=("Arial", 10, "bold")).pack(side=tk.LEFT, padx=5)
-    tk.Button(button_frame, text="❌ Exit", command=dialog.destroy, 
+    tk.Button(button_frame, text="Exit", command=dialog.destroy, 
              bg="#e74c3c", fg="white", width=12, font=("Arial", 10, "bold")).pack(side=tk.LEFT, padx=5)
 
     def auto_refresh():
